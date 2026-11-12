@@ -1,0 +1,58 @@
+[08:50:58] corriendo FPGA00 semilla 3 ... (progreso: tail -f outputs/FPGA00/log_FPGA00_seed3.txt)
+[08:50:58] corriendo FPGA00 semilla 1 ... (progreso: tail -f outputs/FPGA00/log_FPGA00_seed1.txt)
+[08:50:58] corriendo FPGA00 semilla 2 ... (progreso: tail -f outputs/FPGA00/log_FPGA00_seed2.txt)
+[08:50:58] corriendo FPGA00 semilla 4 ... (progreso: tail -f outputs/FPGA00/log_FPGA00_seed4.txt)
+[08:50:58] corriendo FPGA00 semilla 5 ... (progreso: tail -f outputs/FPGA00/log_FPGA00_seed5.txt)
+FPGA00  seed 5   HPWL      11449   125.273s  PASS/PASS
+FPGA00  seed 4   HPWL      11486   143.677s  PASS/PASS
+FPGA00  seed 2   HPWL      11442   146.982s  PASS/PASS
+FPGA00  seed 1   HPWL      11907   168.358s  PASS/PASS
+FPGA00  seed 3   HPWL      11434   169.390s  PASS/PASS
+[08:53:47] corriendo FPGA01 semilla 2 ... (progreso: tail -f outputs/FPGA01/log_FPGA01_seed2.txt)
+[08:53:47] corriendo FPGA01 semilla 3 ... (progreso: tail -f outputs/FPGA01/log_FPGA01_seed3.txt)
+[08:53:47] corriendo FPGA01 semilla 5 ... (progreso: tail -f outputs/FPGA01/log_FPGA01_seed5.txt)
+[08:53:47] corriendo FPGA01 semilla 1 ... (progreso: tail -f outputs/FPGA01/log_FPGA01_seed1.txt)
+[08:53:47] corriendo FPGA01 semilla 4 ... (progreso: tail -f outputs/FPGA01/log_FPGA01_seed4.txt)
+FPGA01  seed 4   HPWL     369245   187.206s  PASS/PASS
+FPGA01  seed 3   HPWL     385395   187.225s  PASS/PASS
+FPGA01  seed 1   HPWL     386773   187.795s  PASS/PASS
+FPGA01  seed 5   HPWL     368386   199.689s  PASS/PASS
+FPGA01  seed 2   HPWL     373848   203.560s  PASS/PASS
+[08:57:11] corriendo FPGA02 semilla 5 ... (progreso: tail -f outputs/FPGA02/log_FPGA02_seed5.txt)
+[08:57:11] corriendo FPGA02 semilla 3 ... (progreso: tail -f outputs/FPGA02/log_FPGA02_seed3.txt)
+[08:57:11] corriendo FPGA02 semilla 2 ... (progreso: tail -f outputs/FPGA02/log_FPGA02_seed2.txt)
+[08:57:11] corriendo FPGA02 semilla 4 ... (progreso: tail -f outputs/FPGA02/log_FPGA02_seed4.txt)
+[08:57:11] corriendo FPGA02 semilla 1 ... (progreso: tail -f outputs/FPGA02/log_FPGA02_seed1.txt)
+FPGA02  seed 3   HPWL     706939   480.929s  PASS/PASS
+FPGA02  seed 1   HPWL     717895   490.035s  PASS/PASS
+FPGA02  seed 5   HPWL     715713   493.088s  PASS/PASS
+FPGA02  seed 4   HPWL     699386   498.400s  PASS/PASS
+FPGA02  seed 2   HPWL     706238   500.712s  PASS/PASS
+[09:05:32] corriendo FPGA03 semilla 4 ... (progreso: tail -f outputs/FPGA03/log_FPGA03_seed4.txt)
+[09:05:32] corriendo FPGA03 semilla 1 ... (progreso: tail -f outputs/FPGA03/log_FPGA03_seed1.txt)
+[09:05:32] corriendo FPGA03 semilla 3 ... (progreso: tail -f outputs/FPGA03/log_FPGA03_seed3.txt)
+[09:05:32] corriendo FPGA03 semilla 5 ... (progreso: tail -f outputs/FPGA03/log_FPGA03_seed5.txt)
+[09:05:32] corriendo FPGA03 semilla 2 ... (progreso: tail -f outputs/FPGA03/log_FPGA03_seed2.txt)
+FPGA03  seed 4   HPWL    2870794  3972.889s  PASS/PASS
+FPGA03  seed 3   HPWL    2934708  3988.230s  PASS/PASS
+FPGA03  seed 5   HPWL    2943231  4045.483s  PASS/PASS
+FPGA03  seed 1   HPWL    2972695  4058.438s  PASS/PASS
+FPGA03  seed 2   HPWL    2992459  4114.003s  PASS/PASS
+[10:14:06] corriendo FPGA04 semilla 5 ... (progreso: tail -f outputs/FPGA04/log_FPGA04_seed5.txt)
+[10:14:06] corriendo FPGA04 semilla 2 ... (progreso: tail -f outputs/FPGA04/log_FPGA04_seed2.txt)
+[10:14:06] corriendo FPGA04 semilla 1 ... (progreso: tail -f outputs/FPGA04/log_FPGA04_seed1.txt)
+[10:14:06] corriendo FPGA04 semilla 3 ... (progreso: tail -f outputs/FPGA04/log_FPGA04_seed3.txt)
+[10:14:06] corriendo FPGA04 semilla 4 ... (progreso: tail -f outputs/FPGA04/log_FPGA04_seed4.txt)
+FPGA04  seed 5   HPWL    5357317  7219.917s  PASS/PASS
+FPGA04  seed 1   HPWL    5409033  7241.652s  PASS/PASS
+FPGA04  seed 4   HPWL    5398598  7244.764s  PASS/PASS
+FPGA04  seed 2   HPWL    5308558  7253.736s  PASS/PASS
+FPGA04  seed 3   HPWL    5451755  7271.665s  PASS/PASS
+
+Resumen de esta corrida (2026-11-11T08:50:58):
+Bench          Mejor     Promedio   Desv.std  t_prom(s)         Meta Estado
+FPGA00         11434        11544        183     150.74        52880 cumple meta
+FPGA01        368386       376729       7873     193.09      1453168 cumple meta
+FPGA02        699386       709234       6756     492.63      2716304 cumple meta
+FPGA03       2870794      2942777      41498    4035.81     11528160 cumple meta
+FPGA04       5308558      5385052      48638    7246.35     21846668 cumple meta

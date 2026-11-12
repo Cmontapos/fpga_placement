@@ -1,0 +1,19 @@
+# Ejecutables (se generan con `make`)
+placer
+placer_dbg
+placer_fase1
+*.o
+
+# Salidas intermedias de experimentos: se conservan los CSV de results/,
+# los logs y el mejor placement de cada benchmark (outputs/FPGAxx/new_FPGAxx.pl)
+outputs/ablation/
+outputs/*/new_*_seed*.pl
+
+# Notas personales de trabajo
+contexto.md
+
+# Basura de sistemas operativos y editores
+.DS_Store
+*:Zone.Identifier
+__pycache__/
+.vscode/

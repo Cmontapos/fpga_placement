@@ -1,0 +1,5 @@
+config,benchmark,seed,hpwl,time_s,legal
+inner1,FPGA01,1,442116,110.789,PASS
+inner2,FPGA01,1,415015,220.304,PASS
+inner4,FPGA01,1,396581,395.397,PASS
+inner8,FPGA01,1,366006,706.850,PASS

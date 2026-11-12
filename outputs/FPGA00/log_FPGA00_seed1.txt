@@ -1,0 +1,179 @@
+Rejilla 168x480 | celdas 249 | nets 1531 | pines 5334
+  CLB  celdas    241 (fijas 0) / sitios  67200  -> utilización   0.4%
+  RAM  celdas      2 (fijas 0) / sitios   1728  -> utilización   0.1%
+  DSP  celdas      2 (fijas 0) / sitios    768  -> utilización   0.3%
+  IO   celdas      4 (fijas 4) / sitios     64  -> utilización   6.2%
+  grado máximo de net: 245
+Lectura: 0.01 s | HPWL inicial: 438681
+Annealing fase 2: N=245  M=1533 movs/temp  T0=23434.5  alfa=adaptativo  ventana=adaptativa
+  it=  0  T=   23434.547  HPWL=     445072  R=0.9843  rlim= 480.0  t=     0.0s
+  presupuesto: 150 s de 300 s  costo=0.835 us/mov  ->  M=1088188 (inner_num=709.82)
+  it=  1  T=   11717.274  HPWL=     423461  R=0.9623  rlim= 480.0  t=     1.0s
+  it=  2  T=    5858.637  HPWL=     408662  R=0.9253  rlim= 480.0  t=     1.9s
+  it=  3  T=    5272.773  HPWL=     429118  R=0.9168  rlim= 480.0  t=     2.8s
+  it=  4  T=    4745.496  HPWL=     417395  R=0.9073  rlim= 480.0  t=     3.8s
+  it=  5  T=    4270.946  HPWL=     416304  R=0.8969  rlim= 480.0  t=     4.7s
+  it=  6  T=    3843.852  HPWL=     408602  R=0.8852  rlim= 480.0  t=     5.6s
+  it=  7  T=    3459.466  HPWL=     407649  R=0.8732  rlim= 480.0  t=     6.6s
+  it=  8  T=    3113.520  HPWL=     379539  R=0.8595  rlim= 480.0  t=     7.5s
+  it=  9  T=    2802.168  HPWL=     397347  R=0.8437  rlim= 480.0  t=     8.5s
+  it= 10  T=    2521.951  HPWL=     372862  R=0.8263  rlim= 480.0  t=     9.4s
+  it= 11  T=    2269.756  HPWL=     371368  R=0.8075  rlim= 480.0  t=    10.4s
+  it= 12  T=    2042.780  HPWL=     379682  R=0.7862  rlim= 480.0  t=    11.3s
+  it= 13  T=    1940.641  HPWL=     355307  R=0.7750  rlim= 480.0  t=    12.3s
+  it= 14  T=    1843.609  HPWL=     350244  R=0.7647  rlim= 480.0  t=    13.2s
+  it= 15  T=    1751.429  HPWL=     376133  R=0.7510  rlim= 480.0  t=    14.2s
+  it= 16  T=    1663.857  HPWL=     336899  R=0.7391  rlim= 480.0  t=    15.1s
+  it= 17  T=    1580.664  HPWL=     355297  R=0.7270  rlim= 480.0  t=    16.1s
+  it= 18  T=    1501.631  HPWL=     334500  R=0.7122  rlim= 480.0  t=    17.0s
+  it= 19  T=    1426.550  HPWL=     357585  R=0.6980  rlim= 480.0  t=    17.9s
+  it= 20  T=    1355.222  HPWL=     346865  R=0.6840  rlim= 480.0  t=    18.8s
+  it= 21  T=    1287.461  HPWL=     354162  R=0.6675  rlim= 480.0  t=    19.8s
+  it= 22  T=    1223.088  HPWL=     330254  R=0.6524  rlim= 480.0  t=    20.6s
+  it= 23  T=    1161.934  HPWL=     320499  R=0.6347  rlim= 480.0  t=    21.5s
+  it= 24  T=    1103.837  HPWL=     295091  R=0.6177  rlim= 480.0  t=    22.4s
+  it= 25  T=    1048.645  HPWL=     304730  R=0.5988  rlim= 480.0  t=    23.3s
+  it= 26  T=     996.213  HPWL=     314283  R=0.5806  rlim= 480.0  t=    24.3s
+  it= 27  T=     946.402  HPWL=     276902  R=0.5633  rlim= 480.0  t=    25.2s
+  it= 28  T=     899.082  HPWL=     273505  R=0.5442  rlim= 480.0  t=    26.1s
+  it= 29  T=     854.128  HPWL=     268156  R=0.5232  rlim= 480.0  t=    27.0s
+  it= 30  T=     811.422  HPWL=     290518  R=0.5017  rlim= 480.0  t=    27.9s
+  it= 31  T=     770.851  HPWL=     250588  R=0.4825  rlim= 480.0  t=    28.7s
+  it= 32  T=     732.308  HPWL=     269227  R=0.4582  rlim= 480.0  t=    29.6s
+  it= 33  T=     695.693  HPWL=     253336  R=0.4387  rlim= 480.0  t=    30.5s
+  it= 34  T=     660.908  HPWL=     239096  R=0.4172  rlim= 479.4  t=    31.4s
+  it= 35  T=     627.863  HPWL=     244539  R=0.3962  rlim= 468.5  t=    32.3s
+  it= 36  T=     596.469  HPWL=     218783  R=0.3760  rlim= 448.0  t=    33.1s
+  it= 37  T=     566.646  HPWL=     228267  R=0.3580  rlim= 419.3  t=    34.0s
+  it= 38  T=     538.314  HPWL=     209434  R=0.3438  rlim= 384.9  t=    34.9s
+  it= 39  T=     511.398  HPWL=     197674  R=0.3304  rlim= 347.9  t=    35.8s
+  it= 40  T=     485.828  HPWL=     217456  R=0.3178  rlim= 309.8  t=    36.7s
+  it= 41  T=     461.537  HPWL=     188297  R=0.3040  rlim= 271.9  t=    37.5s
+  it= 42  T=     438.460  HPWL=     178512  R=0.3004  rlim= 234.9  t=    38.4s
+  it= 43  T=     416.537  HPWL=     179480  R=0.3082  rlim= 202.1  t=    39.3s
+  it= 44  T=     395.710  HPWL=     172619  R=0.3194  rlim= 175.5  t=    40.2s
+  it= 45  T=     375.925  HPWL=     176009  R=0.3314  rlim= 154.3  t=    41.1s
+  it= 46  T=     357.128  HPWL=     149751  R=0.3386  rlim= 137.6  t=    42.0s
+  it= 47  T=     339.272  HPWL=     154618  R=0.3430  rlim= 123.6  t=    42.9s
+  it= 48  T=     322.308  HPWL=     152573  R=0.3440  rlim= 111.6  t=    43.8s
+  it= 49  T=     306.193  HPWL=     143335  R=0.3501  rlim= 100.9  t=    44.7s
+  it= 50  T=     290.883  HPWL=     121157  R=0.3516  rlim=  91.8  t=    45.5s
+  it= 51  T=     276.339  HPWL=     134031  R=0.3538  rlim=  83.7  t=    46.4s
+  it= 52  T=     262.522  HPWL=     115046  R=0.3597  rlim=  76.5  t=    47.3s
+  it= 53  T=     249.396  HPWL=     111289  R=0.3653  rlim=  70.4  t=    48.2s
+  it= 54  T=     236.926  HPWL=     115161  R=0.3712  rlim=  65.1  t=    49.0s
+  it= 55  T=     225.080  HPWL=     113303  R=0.3784  rlim=  60.6  t=    49.9s
+  it= 56  T=     213.826  HPWL=      97256  R=0.3826  rlim=  56.9  t=    50.8s
+  it= 57  T=     203.135  HPWL=      94834  R=0.3827  rlim=  53.6  t=    51.7s
+  it= 58  T=     192.978  HPWL=      93776  R=0.3845  rlim=  50.5  t=    52.5s
+  it= 59  T=     183.329  HPWL=      88276  R=0.3871  rlim=  47.7  t=    53.4s
+  it= 60  T=     174.163  HPWL=      85285  R=0.3837  rlim=  45.2  t=    54.2s
+  it= 61  T=     165.454  HPWL=      75866  R=0.3918  rlim=  42.7  t=    55.1s
+  it= 62  T=     157.182  HPWL=      81600  R=0.3895  rlim=  40.6  t=    56.0s
+  it= 63  T=     149.323  HPWL=      75568  R=0.3903  rlim=  38.6  t=    56.9s
+  it= 64  T=     141.856  HPWL=      71765  R=0.3908  rlim=  36.6  t=    57.7s
+  it= 65  T=     134.764  HPWL=      63520  R=0.3952  rlim=  34.8  t=    58.6s
+  it= 66  T=     128.025  HPWL=      63823  R=0.3885  rlim=  33.3  t=    59.4s
+  it= 67  T=     121.624  HPWL=      60870  R=0.3919  rlim=  31.6  t=    60.3s
+  it= 68  T=     115.543  HPWL=      61260  R=0.3873  rlim=  30.0  t=    61.2s
+  it= 69  T=     109.766  HPWL=      58819  R=0.3928  rlim=  28.5  t=    62.0s
+  it= 70  T=     104.278  HPWL=      54713  R=0.3878  rlim=  27.1  t=    62.9s
+  it= 71  T=      99.064  HPWL=      52601  R=0.4021  rlim=  25.7  t=    63.8s
+  it= 72  T=      94.110  HPWL=      52167  R=0.3998  rlim=  24.7  t=    64.8s
+  it= 73  T=      89.405  HPWL=      46563  R=0.3920  rlim=  23.7  t=    65.8s
+  it= 74  T=      84.935  HPWL=      44226  R=0.3910  rlim=  22.6  t=    66.6s
+  it= 75  T=      80.688  HPWL=      48141  R=0.3915  rlim=  21.5  t=    67.5s
+  it= 76  T=      76.654  HPWL=      42100  R=0.3909  rlim=  20.4  t=    68.4s
+  it= 77  T=      72.821  HPWL=      41822  R=0.3925  rlim=  19.4  t=    69.4s
+  it= 78  T=      69.180  HPWL=      40663  R=0.3930  rlim=  18.5  t=    70.3s
+  it= 79  T=      65.721  HPWL=      37644  R=0.3937  rlim=  17.6  t=    71.2s
+  it= 80  T=      62.435  HPWL=      37713  R=0.3992  rlim=  16.8  t=    72.1s
+  it= 81  T=      59.313  HPWL=      39207  R=0.3792  rlim=  16.1  t=    73.0s
+  it= 82  T=      56.347  HPWL=      38452  R=0.3843  rlim=  15.2  t=    74.0s
+  it= 83  T=      53.530  HPWL=      34249  R=0.3907  rlim=  14.3  t=    74.9s
+  it= 84  T=      50.854  HPWL=      35233  R=0.3981  rlim=  13.6  t=    75.9s
+  it= 85  T=      48.311  HPWL=      30226  R=0.3803  rlim=  13.0  t=    76.9s
+  it= 86  T=      45.895  HPWL=      31349  R=0.3911  rlim=  12.3  t=    77.9s
+  it= 87  T=      43.601  HPWL=      29731  R=0.4029  rlim=  11.7  t=    79.0s
+  it= 88  T=      41.421  HPWL=      27903  R=0.3861  rlim=  11.2  t=    80.0s
+  it= 89  T=      39.350  HPWL=      26860  R=0.3989  rlim=  10.6  t=    81.0s
+  it= 90  T=      37.382  HPWL=      26922  R=0.3827  rlim=  10.2  t=    82.1s
+  it= 91  T=      35.513  HPWL=      26723  R=0.4054  rlim=   9.6  t=    83.1s
+  it= 92  T=      33.737  HPWL=      26237  R=0.3882  rlim=   9.3  t=    84.2s
+  it= 93  T=      32.050  HPWL=      24193  R=0.4109  rlim=   8.8  t=    85.3s
+  it= 94  T=      30.448  HPWL=      23817  R=0.3938  rlim=   8.5  t=    86.4s
+  it= 95  T=      28.926  HPWL=      23287  R=0.3738  rlim=   8.1  t=    87.6s
+  it= 96  T=      27.479  HPWL=      23636  R=0.4028  rlim=   7.6  t=    88.7s
+  it= 97  T=      26.105  HPWL=      22589  R=0.3837  rlim=   7.3  t=    89.9s
+  it= 98  T=      24.800  HPWL=      21608  R=0.4172  rlim=   6.9  t=    91.2s
+  it= 99  T=      23.560  HPWL=      21692  R=0.3999  rlim=   6.8  t=    92.4s
+  it=100  T=      22.382  HPWL=      20702  R=0.3816  rlim=   6.5  t=    93.5s
+  it=101  T=      21.263  HPWL=      20692  R=0.3647  rlim=   6.1  t=    94.7s
+  it=102  T=      20.200  HPWL=      19290  R=0.4055  rlim=   5.6  t=    95.9s
+  it=103  T=      19.190  HPWL=      19322  R=0.3881  rlim=   5.4  t=    97.1s
+  it=104  T=      18.230  HPWL=      18891  R=0.3687  rlim=   5.2  t=    98.3s
+  it=105  T=      17.319  HPWL=      18471  R=0.4235  rlim=   4.8  t=    99.5s
+  it=106  T=      16.453  HPWL=      18370  R=0.4058  rlim=   4.7  t=   100.7s
+  it=107  T=      15.630  HPWL=      17997  R=0.3851  rlim=   4.6  t=   102.0s
+  it=108  T=      14.849  HPWL=      17757  R=0.3684  rlim=   4.3  t=   103.2s
+  it=109  T=      14.106  HPWL=      16921  R=0.4425  rlim=   4.0  t=   104.4s
+  it=110  T=      13.401  HPWL=      16665  R=0.3319  rlim=   4.0  t=   105.7s
+  it=111  T=      12.731  HPWL=      17055  R=0.4038  rlim=   3.6  t=   106.9s
+  it=112  T=      12.094  HPWL=      16192  R=0.3845  rlim=   3.4  t=   108.2s
+  it=113  T=      11.490  HPWL=      15861  R=0.3665  rlim=   3.3  t=   109.4s
+  it=114  T=      10.915  HPWL=      15503  R=0.3484  rlim=   3.0  t=   110.7s
+  it=115  T=      10.369  HPWL=      15174  R=0.4565  rlim=   2.7  t=   111.9s
+  it=116  T=       9.851  HPWL=      15115  R=0.4377  rlim=   2.8  t=   113.2s
+  it=117  T=       9.358  HPWL=      15053  R=0.4187  rlim=   2.8  t=   114.5s
+  it=118  T=       8.890  HPWL=      14527  R=0.4024  rlim=   2.7  t=   115.8s
+  it=119  T=       8.446  HPWL=      14619  R=0.3840  rlim=   2.6  t=   117.0s
+  it=120  T=       8.024  HPWL=      14371  R=0.3657  rlim=   2.5  t=   118.3s
+  it=121  T=       7.622  HPWL=      14088  R=0.3485  rlim=   2.3  t=   119.6s
+  it=122  T=       7.241  HPWL=      14117  R=0.3328  rlim=   2.1  t=   120.9s
+  it=123  T=       6.879  HPWL=      13755  R=0.4909  rlim=   1.9  t=   122.2s
+  it=124  T=       6.535  HPWL=      13622  R=0.4736  rlim=   1.9  t=   123.4s
+  it=125  T=       6.209  HPWL=      13706  R=0.2806  rlim=   2.0  t=   124.7s
+  it=126  T=       5.898  HPWL=      13451  R=0.4395  rlim=   1.7  t=   125.9s
+  it=127  T=       5.603  HPWL=      13387  R=0.4213  rlim=   1.7  t=   127.1s
+  it=128  T=       5.323  HPWL=      13158  R=0.4050  rlim=   1.7  t=   128.2s
+  it=129  T=       5.057  HPWL=      13105  R=0.3864  rlim=   1.6  t=   129.4s
+  it=130  T=       4.804  HPWL=      13094  R=0.3702  rlim=   1.5  t=   130.6s
+  it=131  T=       4.564  HPWL=      12930  R=0.3539  rlim=   1.4  t=   131.9s
+  it=132  T=       4.336  HPWL=      12926  R=0.3356  rlim=   1.3  t=   133.1s
+  it=133  T=       4.119  HPWL=      12764  R=0.3191  rlim=   1.2  t=   134.3s
+  it=134  T=       3.913  HPWL=      12734  R=0.3034  rlim=   1.0  t=   135.5s
+  it=135  T=       3.717  HPWL=      12708  R=0.2878  rlim=   1.0  t=   136.7s
+  it=136  T=       3.531  HPWL=      12620  R=0.2707  rlim=   1.0  t=   137.9s
+  it=137  T=       3.355  HPWL=      12596  R=0.2556  rlim=   1.0  t=   139.0s
+  it=138  T=       3.187  HPWL=      12472  R=0.2407  rlim=   1.0  t=   140.2s
+  it=139  T=       3.028  HPWL=      12459  R=0.2265  rlim=   1.0  t=   141.4s
+  it=140  T=       2.876  HPWL=      12415  R=0.2123  rlim=   1.0  t=   142.5s
+  it=141  T=       2.733  HPWL=      12422  R=0.1987  rlim=   1.0  t=   143.7s
+  it=142  T=       2.596  HPWL=      12328  R=0.1854  rlim=   1.0  t=   144.8s
+  it=143  T=       2.466  HPWL=      12234  R=0.1720  rlim=   1.0  t=   146.0s
+  it=144  T=       2.343  HPWL=      12214  R=0.1592  rlim=   1.0  t=   147.1s
+  it=145  T=       2.226  HPWL=      12237  R=0.1484  rlim=   1.0  t=   148.2s
+  it=146  T=       1.781  HPWL=      12101  R=0.1050  rlim=   1.0  t=   149.3s
+  it=147  T=       1.424  HPWL=      11995  R=0.0723  rlim=   1.0  t=   150.4s
+  it=148  T=       1.140  HPWL=      11964  R=0.0515  rlim=   1.0  t=   151.5s
+  it=149  T=       0.912  HPWL=      11949  R=0.0359  rlim=   1.0  t=   152.5s
+  it=150  T=       0.729  HPWL=      11918  R=0.0256  rlim=   1.0  t=   153.6s
+  it=151  T=       0.583  HPWL=      11918  R=0.0169  rlim=   1.0  t=   154.6s
+  it=152  T=       0.467  HPWL=      11910  R=0.0131  rlim=   1.0  t=   155.7s
+  it=153  T=       0.373  HPWL=      11909  R=0.0101  rlim=   1.0  t=   156.7s
+  it=154  T=       0.299  HPWL=      11907  R=0.0073  rlim=   1.0  t=   157.8s
+  it=155  T=       0.239  HPWL=      11907  R=0.0061  rlim=   1.0  t=   158.8s
+  it=156  T=       0.191  HPWL=      11907  R=0.0056  rlim=   1.0  t=   159.9s
+  it=157  T=       0.153  HPWL=      11907  R=0.0053  rlim=   1.0  t=   161.0s
+  it=158  T=       0.122  HPWL=      11908  R=0.0051  rlim=   1.0  t=   162.0s
+  it=159  T=       0.098  HPWL=      11907  R=0.0051  rlim=   1.0  t=   163.1s
+  it=160  T=       0.078  HPWL=      11907  R=0.0052  rlim=   1.0  t=   164.1s
+  it=161  T=       0.063  HPWL=      11907  R=0.0051  rlim=   1.0  t=   165.2s
+  it=162  T=       0.050  HPWL=      11907  R=0.0051  rlim=   1.0  t=   166.2s
+  it=163  T=       0.040  HPWL=      11907  R=0.0051  rlim=   1.0  t=   167.3s
+Annealing terminado: 164 temperaturas, 177376177 movimientos, 167.3 s
+  greedy  0  HPWL=      11907  R=0.0051  t=   168.3s
+Greedy terminado: HPWL=11907, 168.3 s
+Algoritmo: 168.35 s | HPWL final: 11907 (-97.29% vs inicial)
+Tiempo total: 168.36 s | salida: outputs/FPGA00/new_FPGA00_seed1.pl
+RESULT hpwl=11907 time=168.358 seed=1
