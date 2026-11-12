@@ -350,6 +350,16 @@ El tiempo reportado es el tiempo total del programa: lectura, algoritmo y escrit
 
 La fase 1 y la fase 2 son de la semilla 1; la versión final es la mejor de 5 semillas.
 
+### 8.3 Extra: FPGA05 (benchmark sorpresa)
+
+Después de la corrida final se probó el programa con FPGA05, sin cambiar ningún parámetro ni el código. Esta prueba **no forma parte de las tablas anteriores**: es una sola corrida (semilla 1) sin presupuesto de tiempo (`make run BENCH=FPGA05 TIME_LIMIT=`, o sea `inner_num = 1`), con un solo proceso.
+
+| Benchmark | Celdas | Uso de CLB | Nets | HPWL inicial | Meta | **HPWL** | Veces bajo la meta | Tiempo | Legal |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---|
+| FPGA05 | 46 466 | 67,5 % | 240 556 | 77 068 522 | 38 891 148 | **9 548 897** | 4,1× | 1 203 s (20 min) | PASS/PASS |
+
+El HPWL baja un 87,6 % respecto al inicial, en línea con lo que dio la misma configuración en FPGA04 (3,98× bajo la meta con `inner_num = 1`). Con el presupuesto completo (límite de 5 h, `make run BENCH=FPGA05`) se espera una mejora adicional pequeña, de entre 1 y 4 %, como ocurrió en FPGA04, pero esa corrida no se hizo ni se reporta aquí.
+
 ---
 
 ## 9. Fortalezas y limitaciones

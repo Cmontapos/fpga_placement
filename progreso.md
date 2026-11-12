@@ -34,6 +34,7 @@ Cada fila registra un cambio o decisión, su motivo y su resultado. El resumen c
 | 2026-11-11 | FPGA00 con presupuesto completo (150 s, 3 semillas) | Probar el presupuesto | 10 401 – 12 026 (prom. 11 426); con 10 s había dado 10 376: FPGA00 ya está en su meseta y domina la variación entre semillas. Posible mejora: reinicios múltiples en benchmarks chicos | — |
 | 2026-11-11 | El profesor aprobó que el proyecto se haga de forma individual | El enunciado pide grupos de 2 a 3 | Aprobado | — |
 | 2026-11-11 | Corrida final: 5 semillas × 5 benchmarks con presupuesto de tiempo (`PAR=5`) | Resultados para el informe y `.pl` de entrega | 25/25 PASS/PASS; ver tabla de resultados | Sí |
+| 2026-11-12 | Extra: FPGA05 con `make run BENCH=FPGA05 TIME_LIMIT=` (semilla 1, `inner_num = 1`, un solo proceso) | Probar el programa en el benchmark sorpresa sin cambiar nada | HPWL 9 548 897 (meta 38 891 148, 4,1× abajo), 1 203 s, PASS/PASS. No incluido en el informe ni la presentación | Sí (solo README) |
 | | | | | |
 
 ## Resultados por benchmark
