@@ -67,6 +67,31 @@ Si el evaluador da "Permission denied", hay que darle permiso de ejecución con 
 
 **Tiempos:** cada benchmark recibe el tiempo máximo del enunciado (`LIMIT_FPGA00` … `LIMIT_FPGA05` en el Makefile). El programa calibra su trabajo para usar alrededor del **50 %** de ese tiempo y tiene un freno de seguridad al 80 % (sección 6.4). Con las semillas en paralelo, `make experiments PAR=5` tarda unas 3,5 h. FPGA04 es el que más tarda, con unas 2 h.
 
+### Cómo probar el código: modos de tiempo
+
+El programa tiene dos modos de tiempo, y el comportamiento depende de **cómo se lo invoque**:
+
+| Comando | Modo | Qué hace | Tiempo aproximado |
+|---|---|---|---|
+| `make run BENCH=FPGA01` | **Con el tiempo del enunciado** (el Makefile le pasa el límite del benchmark) | Calibra los movimientos para usar ~50 % del límite del enunciado; freno de seguridad al 80 % | ~50 % del límite (FPGA01: ~3 min; FPGA04: ~2 h) |
+| `make run BENCH=FPGA01 TIME_LIMIT=` (vacío) | **Sin límite de tiempo preestablecido** | Una sola pasada rápida (`inner_num = 1`); no calcula ni usa ningún presupuesto | Minutos (FPGA01: ~45 s; FPGA04: ~10 min; FPGA05: ~20 min) |
+| `make run BENCH=FPGA01 TIME_LIMIT=120` | **Con un límite propio** | Igual que el primero, pero con 120 s como límite en lugar del del enunciado | ~50 % de ese valor |
+
+El modo rápido (`TIME_LIMIT=`) es el recomendado para **probar que todo funciona** (compilar, leer los archivos, obtener un placement legal con PASS/PASS) sin esperar. El HPWL sale algo mayor, pero sigue unas 4 veces por debajo de la meta, y los tiempos quedan muy por debajo de los límites del enunciado. El modo con el límite del enunciado es el que se usó para los resultados de la sección 8.
+
+Al invocar `./placer` **directamente** (sin Makefile) es al revés, porque el programa no conoce el nombre del benchmark ni su límite: **sin `--time-limit` corre en el modo rápido**, y **con `--time-limit S`** usa el presupuesto de `S` segundos.
+
+Para probar un benchmark en pocos pasos:
+
+```bash
+make                                           # compila ./placer
+make run BENCH=FPGA00 TIME_LIMIT=              # prueba rápida, termina en segundos
+make selftest BENCH=FPGA00                     # el HPWL incremental coincide con el recalculado
+make run BENCH=FPGA01                          # con el tiempo del enunciado
+```
+
+Cada `make run` termina con la salida del evaluador, que debe mostrar `Checking placement integrity ...... PASS` y `Checking placement legality ...... PASS`.
+
 ### Directamente
 
 ```bash

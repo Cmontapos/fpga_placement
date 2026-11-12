@@ -9,28 +9,15 @@
 #include <vector>
 
 // ===========================================================================
-// ALGORITMO DE PLACEMENT  —  por implementar
-// ===========================================================================
-// Herramientas disponibles:
-//   d.cellType[c], d.cellFixed[c], d.cellX[c], d.cellY[c]
-//   d.sitesOfType[t]          -> todos los sitios de un tipo (índice; usar d.siteX / d.siteY)
-//   d.occupant[d.site(x, y)]  -> celda en un sitio o -1
+// ALGORITMO DE PLACEMENT: simulated annealing con enfriamiento adaptativo y
+// ventana de movimiento (rlim), al estilo de VPR, seguido de un refinamiento
+// greedy. Ver las secciones 3 y 6 del README.md.
+//
+// Interfaz con el resto del programa:
 //   hp.canMoveTo(c, x, y)     -> ¿movimiento legal?
 //   hp.proposeMove(c, x, y)   -> delta de HPWL (mover o intercambiar), sin aplicar
 //   hp.commit()               -> aplica la última propuesta
 //   hp.total()                -> HPWL actual
-//
-// Plan sugerido (ver README):
-//   1. Placement inicial (el aleatorio del .pl, o uno constructivo mejor).
-//   2. Simulated annealing:
-//        - escoger celda móvil al azar y un sitio del mismo tipo dentro de una ventana
-//        - d = hp.proposeMove(...); aceptar si d <= 0 o con probabilidad exp(-d / T)
-//        - ajustar T y el tamaño de la ventana según la tasa de aceptación
-//   3. Refinamiento greedy final (solo movimientos con d < 0).
-// ===========================================================================
-//
-// FASE 2: annealing con alfa adaptativo y ventana de movimiento (rlim).
-// Ver contexto.md, sección 5.7.
 // ===========================================================================
 
 namespace {
@@ -67,7 +54,7 @@ struct SiteIndex {
 // Si el rango tiene un solo elemento o ninguno, se amplía al vecino más
 // cercano de cada lado. Así una RAM o DSP siempre puede llegar a la columna
 // vecina de su tipo aunque la ventana sea más angosta que la separación
-// entre columnas (contexto.md, 5.7.1).
+// entre columnas (README.md, sección 4).
 inline void windowRange(const std::vector<int>& v, int a, int r, int& lo, int& hi) {
     const int n = (int)v.size();
     lo = (int)(std::lower_bound(v.begin(), v.end(), a - r) - v.begin());

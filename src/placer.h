@@ -1,5 +1,5 @@
 // placer.h
-// Aquí va el algoritmo de placement del grupo.
+// Algoritmo de placement: simulated annealing (ver README.md).
 #pragma once
 
 #include <cstdint>
