@@ -1,6 +1,6 @@
 # Bitácora de progreso: Placement para FPGAs (IE0411)
 
-Cada fila registra un cambio o decisión, su motivo y su resultado. Ver [contexto.md](contexto.md) para el resumen completo del proyecto.
+Cada fila registra un cambio o decisión, su motivo y su resultado. El resumen completo del proyecto está en el [README](README.md).
 
 ## Estado por fase
 
