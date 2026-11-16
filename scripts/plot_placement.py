@@ -5,6 +5,8 @@ Uso:
   scripts/plot_placement.py placement <sitemap> <pl_inicial> <pl_final> <salida.png> [--titulo T]
       Rejilla de la FPGA con cada celda en su sitio, coloreada por tipo:
       placement inicial (izquierda) y final (derecha).
+  scripts/plot_placement.py zoom <sitemap> <pl_final> <salida.png> [--margen M] [--titulo T]
+      Acercamiento a la zona ocupada del placement final.
   scripts/plot_placement.py curva <log> <salida.png> [--meta HPWL] [--titulo T]
       Curva de convergencia del annealing (HPWL y tasa de aceptación por temperatura).
 """
@@ -120,6 +122,32 @@ def curva(a):
     print("escrito", a.salida)
 
 
+def zoom(a):
+    """Acercamiento a la zona ocupada del placement final (útil cuando el
+    circuito es pequeño y en el chip completo casi no se ve)."""
+    w, h, grid = leer_sitemap(a.sitemap)
+    celdas = leer_pl(a.final)
+    movibles = np.vstack([v for t, v in celdas.items() if t != "IO"])
+    x0, y0 = movibles.min(axis=0) - a.margen
+    x1, y1 = movibles.max(axis=0) + a.margen
+    x0, y0, x1, y1 = max(x0, 0), max(y0, 0), min(x1, w - 1), min(y1, h - 1)
+    fig, ax = plt.subplots(figsize=(10, 10 * (y1 - y0 + 1) / (x1 - x0 + 1)), dpi=160)
+    dibujar_rejilla(ax, w, h, grid)
+    for t in ("CLB", "RAM", "DSP", "IO"):
+        if t in celdas:
+            xy = celdas[t]
+            ax.scatter(xy[:, 0], xy[:, 1], s=40, c=COLORES[t], marker="s", linewidths=0, label=t)
+    ax.set_xlim(x0 - 0.5, x1 + 0.5)
+    ax.set_ylim(y0 - 0.5, y1 + 0.5)
+    ax.set_aspect("equal")
+    ax.legend(loc="upper right", fontsize=11, framealpha=0.9)
+    if a.titulo:
+        ax.set_title(a.titulo, fontsize=15, loc="left")
+    fig.tight_layout()
+    fig.savefig(a.salida, facecolor="white")
+    print("escrito", a.salida)
+
+
 def main():
     p = argparse.ArgumentParser()
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -130,6 +158,13 @@ def main():
     q.add_argument("salida")
     q.add_argument("--titulo", default="")
     q.set_defaults(fn=placement)
+    z = sub.add_parser("zoom")
+    z.add_argument("sitemap")
+    z.add_argument("final")
+    z.add_argument("salida")
+    z.add_argument("--margen", type=int, default=4)
+    z.add_argument("--titulo", default="")
+    z.set_defaults(fn=zoom)
     c = sub.add_parser("curva")
     c.add_argument("log")
     c.add_argument("salida")

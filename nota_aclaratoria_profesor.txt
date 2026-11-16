@@ -1,0 +1,167 @@
+NOTA ACLARATORIA
+Proyecto: Placement para FPGAs con simulated annealing
+IE0411 Diseño VLSI - Universidad de Costa Rica
+Prof. Erick Carvajal Barboza, PhD
+Autor: Cristopher Montero Campos (C14938)
+Fecha: 15 de noviembre de 2026
+
+Esta nota aclara dos puntos del proyecto:
+  1. Cómo correr el placer usando únicamente los archivos del benchmark,
+     sin tiempos límite ni ningún otro dato externo.
+  2. Cómo decide el programa cuándo detenerse.
+
+
+==============================================================================
+1. EJECUCIÓN USANDO SOLO LOS ARCHIVOS DEL BENCHMARK
+==============================================================================
+
+Por defecto, el Makefile le pasa a cada benchmark su tiempo máximo del
+enunciado (opción --time-limit). Ese tiempo es una restricción del problema,
+no un parámetro de ajuste. Aun así, el placer también puede correrse sin él.
+
+Para correr TODOS los benchmarks de la carpeta benchmarks/ sin límite de
+tiempo:
+
+    make run-all TIME_LIMIT=
+
+Para correr UN solo benchmark (por ejemplo, el benchmark sorpresa):
+
+    make run BENCH=FPGA05 TIME_LIMIT=
+
+Al dejar TIME_LIMIT vacío, el Makefile no agrega --time-limit. Para cada
+benchmark ejecuta exactamente esto:
+
+    ./placer benchmarks/FPGAxx/FPGAxx.sitemap \
+             benchmarks/FPGAxx/FPGAxx.nets \
+             benchmarks/FPGAxx/FPGAxx.pl \
+             outputs/FPGAxx/new_FPGAxx.pl --seed 1
+
+    ./evaluator (mismos archivos)    -> valida integridad y legalidad
+
+En este modo:
+
+  - El programa lee solamente los tres archivos del benchmark (.sitemap,
+    .nets y .pl) y escribe un único archivo de salida (.pl). No lee
+    variables de entorno, archivos de configuración ni tablas por benchmark.
+  - No usa la meta de HPWL del enunciado. Las metas aparecen solo en
+    scripts/run_all.sh, y únicamente para imprimir el resumen.
+  - No hay parámetros ajustados a mano para ningún benchmark. Todos los
+    valores del algoritmo salen del propio circuito:
+      * N  = número de celdas móviles (las IO fijas no se mueven).
+      * T0 = 20 veces la desviación estándar del cambio de HPWL en N
+             movimientos de prueba (se proponen pero no se aplican).
+      * M  = N^(4/3) movimientos por temperatura (fórmula de VPR,
+             inner_num = 1).
+      * La arquitectura (tipos de sitio, columnas de RAM/DSP) se lee del
+        .sitemap.
+  - --seed 1 es el valor por defecto del programa. Se escribe solo para que
+    el comando sea explícito. Como en este modo la cantidad de movimientos
+    no depende del reloj, la misma semilla con el mismo binario da siempre
+    el mismo resultado.
+
+Nota: este comando escribe sobre outputs/FPGAxx/new_FPGAxx.pl, que son los
+placements entregados (obtenidos con el tiempo límite del enunciado y la
+mejor de 5 semillas). Si se quieren conservar, conviene respaldar la carpeta
+outputs/ antes de correrlo.
+
+
+==============================================================================
+2. PROTOCOLO DE PARADA
+==============================================================================
+
+El programa tiene tres etapas: annealing, refinamiento greedy y verificación
+final. Las reglas de parada dependen de si se da --time-limit o no.
+
+2.1 Sin tiempo límite (modo descrito en la sección 1)
+------------------------------------------------------
+
+Annealing. Se repite el ciclo "M movimientos -> enfriar" mientras se cumpla:
+
+    T  >  0,005 * (HPWL actual / número de nets)
+
+El lado derecho es el 0,5 % del costo promedio de una net. Cuando la
+temperatura cae por debajo de ese valor, la probabilidad de aceptar un
+movimiento que empeore es prácticamente cero: el placement está
+"congelado". El criterio se ajusta solo a la escala de cada benchmark.
+
+El factor de enfriamiento es adaptativo (tabla de VPR, según la tasa de
+aceptación R de la temperatura anterior):
+
+    R > 0,96          -> alfa = 0,5   (casi todo se acepta: es puro azar)
+    0,80 < R <= 0,96  -> alfa = 0,9
+    0,15 < R <= 0,80  -> alfa = 0,95  (zona donde más se mejora)
+    R <= 0,15         -> alfa = 0,8   (casi congelado)
+
+Con este programa de enfriamiento, el annealing termina después de unas
+160 temperaturas en todos los benchmarks medidos (FPGA01 a FPGA04).
+
+Refinamiento greedy. Después del annealing se hacen pasadas de M
+movimientos a temperatura cero (solo se aceptan cambios con delta HPWL <= 0).
+Se detiene en cuanto ocurre cualquiera de estas dos cosas:
+  - una pasada mejora el HPWL en menos de 0,01 %, o
+  - se completan 50 pasadas.
+
+Sin --time-limit el programa no consulta el reloj para decidir: se detiene
+únicamente por los criterios anteriores. Su tiempo total es proporcional a
+unas 160 * N^(4/3) evaluaciones de movimiento, y por eso depende solo del
+tamaño del circuito.
+
+2.2 Con tiempo límite (--time-limit S, modo por defecto del Makefile)
+---------------------------------------------------------------------
+
+Se mantienen los mismos criterios de la sección 2.1, con dos cambios:
+
+  - Calibración. La primera temperatura se corre con M = N^(4/3) y se mide
+    cuánto tarda un movimiento en esa máquina y en ese benchmark. Con ese
+    dato, M se recalcula para que el annealing completo use alrededor del
+    50 % de S.
+  - Frenos de seguridad:
+      * Al llegar al 80 % de S, el annealing se detiene aunque no haya
+        llegado a la temperatura final.
+      * Al llegar al 90 % de S, el refinamiento greedy se omite o se
+        interrumpe.
+
+2.3 Por qué es seguro detenerse en cualquier momento
+----------------------------------------------------
+
+Cada movimiento lleva una celda a un sitio de su mismo tipo que esté libre,
+o la intercambia con otra celda compatible. Por eso el placement es legal
+después de cada movimiento, no solo al final. Además, antes de escribir el
+archivo de salida, el programa verifica la legalidad completa
+(Design::checkLegal) y, si encuentra un error, termina con un mensaje en
+lugar de escribir un placement inválido. El evaluador del curso se ejecuta
+después como segunda verificación.
+
+
+==============================================================================
+3. TIEMPOS MEDIDOS SIN TIEMPO LÍMITE
+==============================================================================
+
+Estas corridas se hicieron con inner_num = 1 y sin --time-limit, durante el
+desarrollo (fase 2: ventana adaptativa, alfa adaptativo y greedy). Todas
+fueron legales (PASS/PASS en el evaluador).
+
+    Benchmark   Tiempo sin límite   Límite del enunciado   % del límite
+    ---------   -----------------   --------------------   ------------
+    FPGA00          ~0,4 s                 300 s              ~0,1 %
+    FPGA01          45 s                   360 s               13 %
+    FPGA02          374-386 s (*)          900 s              ~43 %
+    FPGA03          1 408 s              9 000 s               16 %
+    FPGA04          1 560 s             14 400 s               11 %
+    FPGA05          1 203 s             18 000 s              6,7 %
+
+(*) Medido con 12 procesos en paralelo, lo que infla los tiempos unas
+    3 veces. Corrido solo, debería tardar bastante menos.
+
+Fuentes: results/ablation_fase2.csv, results/fase2_grandes.csv,
+progreso.md y README.md (sección 8.3).
+
+FPGA05 (benchmark sorpresa) se corrió con el código final, sin cambiar
+ningún parámetro, con "make run BENCH=FPGA05 TIME_LIMIT=" (semilla 1, un
+solo proceso). Dio HPWL 9 548 897 (meta 38 891 148, 4,1 veces por debajo)
+y PASS/PASS en el evaluador.
+
+Sin --time-limit no hay freno de seguridad, así que el tiempo depende solo
+del tamaño del circuito. Para un circuito desconocido, el modo con el límite
+del enunciado ("make run BENCH=FPGAxx", con su LIMIT_FPGAxx en el Makefile)
+garantiza que el programa se detenga a tiempo.
